@@ -1,5 +1,6 @@
 package com.codepath.apps.restclienttemplate
 
+import android.app.DownloadManager.Request
 import android.content.Context
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
@@ -60,6 +61,14 @@ class TwitterClient(context: Context) : OAuthBaseClient(
         params.put("since_id", maxId)
         client.get(apiUrl, params, handler)
     }
+    fun publishTweet(handler: JsonHttpResponseHandler, tweetContent: String) {
+        val apiUrl = getApiUrl("statuses/update.json")
+
+        val params = RequestParams()
+        params.put("status", tweetContent)
+        client.post(apiUrl, params, "", handler)
+    }
+
 
     /* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint
 	 * 	  i.e getApiUrl("statuses/home_timeline.json")

@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 def apikeyPropertiesFile = rootProject.file("apikey.properties")
@@ -73,4 +74,5 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation 'com.facebook.stetho:stetho:1.5.1'
     compile files('libs/EndlessRecyclerViewScrollListener.java')
+    implementation 'com.google.android.material:material:1.1.0'
 }
